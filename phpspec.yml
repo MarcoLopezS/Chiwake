@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Chiwake
+        psr4_prefix: Chiwake
+        src_path: app
