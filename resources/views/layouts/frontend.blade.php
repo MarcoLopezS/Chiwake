@@ -8,12 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
 
-    <title>
-        @{{ configWeb()->titulo }}
-    </title>
+    <title>{{ $conf->titulo }}</title>
 
-    <meta name="keywords" content="@{{ configWeb()->keywords }}"/>
-    <meta name="description" content="@{{ configWeb()->descripcion }}"/>
+    <meta name="keywords" content="{{ $conf->keywords }}"/>
+    <meta name="description" content="{{ $conf->descripcion }}"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index, follow">
 
@@ -131,6 +129,8 @@
 <script type="text/javascript" src="js/scripts.js"></script>
 
 @yield('script_footer')
+
+{{ $conf->google_analytics }}
 
 </body>
 </html>

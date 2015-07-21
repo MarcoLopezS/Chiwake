@@ -149,6 +149,7 @@ return [
 		'Chiwake\Providers\ConfigServiceProvider',
 		'Chiwake\Providers\EventServiceProvider',
 		'Chiwake\Providers\RouteServiceProvider',
+		'Chiwake\Providers\ComposerServiceProvider'
 
 	],
 
