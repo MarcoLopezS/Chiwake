@@ -192,6 +192,7 @@
             <div class="contact-form contact-form-1">
                 <div class="inner wow fadeInUp" data-wow-delay=".3s">
                     {!! Form::open(['route' => 'front.contacto.form', 'method' => 'POST', 'id' => 'formContacto']) !!}
+                        
                         <div class="form-item form-textarea">
                             {!! Form::textarea('mensaje', null, ['placeholder' => 'Mensaje']) !!}
                         </div>
@@ -205,7 +206,8 @@
                         <div class="form-actions text-center">
                             <a id="formContactoSubmit" href="#" class="contact-submit awe-btn awe-btn-6 awe-btn-default text-uppercase">Enviar mensaje</a>
                         </div>
-                        <div id="contact-content"></div>
+                        <div class="contact-content" id="mensaje-contacto"></div>
+
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -220,13 +222,14 @@
                         <h4 class="sm text-uppercase">RECIBE NOTICIAS DE NOSOTROS</h4>
                         <p>Doner filet mignon bacon corned beef rump, frankfurter sirloin</p>
                     </div>
-                    {!! Form::open(['method' => 'POST']) !!}
+                    {!! Form::open(['route' => 'front.suscripcion.form', 'method' => 'POST', 'id' => 'formSuscripcion', 'class' => 'pageContacto']) !!}
                         <div class="form-item">
-                            <input type="text" placeholder="Email" class="text-uppercase" name="email">
+                            {!! Form::text('email', null, ['placeholder' => 'Email']) !!}
                         </div>
                         <div class="form-actions">
-                            <input type="submit" value="Suscribete" class="awe-btn awe-btn-2 awe-btn-default text-uppercase">
+                            <a id="formSuscripcionSubmit" href="#" class="awe-btn awe-btn-2 awe-btn-default text-uppercase">Suscribete</a>
                         </div>
+                        <div class="contact-content" id="mensaje-suscripcion"></div>
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -254,9 +257,11 @@
             var data = form.serialize();
 
             $.post(url, data, function(result){
-                $("#contact-content").text(result);
+                $("#mensaje-contacto").text(result.message);
+                form[0].reset();
             }).fail(function(result){
-                $("#contact-content").text("Se produjo un error al enviar el mensaje. Intentelo de nuevo más tarde.");
+                console.log(result);
+                $("#mensaje-contacto").text("Se produjo un error al enviar el mensaje. Intentelo de nuevo más tarde.");
 
                 if(result.status === 422){
 
@@ -269,7 +274,41 @@
                     errorsHtml += '</ul></di>';
 
                     //$('.mensaje').show();
-                    $('#contact-content').html(errorsHtml);
+                    $('#mensaje-contacto').html(errorsHtml);
+
+                };
+
+            });
+
+        });
+
+        $("#formSuscripcionSubmit").on("click", function(e){
+
+            e.preventDefault();
+
+            var form = $("#formSuscripcion");
+            var url = form.attr('action');
+            var data = form.serialize();
+
+            $.post(url, data, function(result){
+                $("#mensaje-suscripcion").text(result.message);
+                form[0].reset();
+            }).fail(function(result){
+                console.log(result);
+                $("#mensaje-suscripcion").text("Se produjo un error al enviar el mensaje. Intentelo de nuevo más tarde.");
+
+                if(result.status === 422){
+
+                    var errors = result.responseJSON;
+
+                    errorsHtml = '<div class="alert alert-danger"><ul>';
+                    $.each( errors, function( key, value ) {
+                        errorsHtml += '<li>' + value[0] + '</li>';
+                    });
+                    errorsHtml += '</ul></di>';
+
+                    //$('.mensaje').show();
+                    $('#mensaje-suscripcion').html(errorsHtml);
 
                 };
 

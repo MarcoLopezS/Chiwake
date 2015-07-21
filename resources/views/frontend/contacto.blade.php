@@ -35,7 +35,7 @@
                 <div class="col-md-8">
                     <div class="form-row">
 
-                        {!! Form::open(['route' => 'front.contacto.form', 'method' => 'post', 'id' => 'send-message-form']) !!}
+                        {!! Form::open(['route' => 'front.contacto.form', 'method' => 'POST', 'id' => 'formContacto', 'class' => 'pageContacto']) !!}
 
                         	<div class="form-item form-textarea">
                         	    {!! Form::textarea('mensaje', null, ['placeholder' => 'Tu mensaje']) !!}
@@ -46,10 +46,10 @@
                             <div class="form-item form-type-email">
                                 {!! Form::text('email', null, ['placeholder' => 'Tu email']) !!}
                             </div>
-                            <div class="form-actions">
-                                <input type="submit" value="Enviar" class="awe-btn awe-btn-2 awe-btn-default text-uppercase">
+                            <div class="form-actions text-center">
+                                <a id="formContactoSubmit" href="#" class="contact-submit awe-btn awe-btn-6 awe-btn-default text-uppercase">Enviar mensaje</a>
                             </div>
-                            <div id="contacto-content">{{ $mensaje }}</div>
+                            <div class="contact-content"></div>
 
                         {!! Form::close() !!}
 
@@ -93,5 +93,49 @@
 </section>
 
 <!-- END / CONTACT US -->
+
+@stop
+
+@section('script_footer')
+
+<script>
+    $(document).on("ready", function(){
+
+        $("#formContactoSubmit").on("click", function(e){
+
+            e.preventDefault();
+
+            var form = $("#formContacto");
+            var url = form.attr('action');
+            var data = form.serialize();
+
+            $.post(url, data, function(result){
+                $(".contact-content").text(result.message);
+                form[0].reset();
+            }).fail(function(result){
+                console.log(result);
+                $(".contact-content").text("Se produjo un error al enviar el mensaje. Intentelo de nuevo más tarde.");
+
+                if(result.status === 422){
+
+                    var errors = result.responseJSON;
+
+                    errorsHtml = '<div class="alert alert-danger"><ul>';
+                    $.each( errors, function( key, value ) {
+                        errorsHtml += '<li>' + value[0] + '</li>';
+                    });
+                    errorsHtml += '</ul></di>';
+
+                    //$('.mensaje').show();
+                    $('.contact-content').html(errorsHtml);
+
+                };
+
+            });
+
+        });
+
+    });
+</script>
 
 @stop

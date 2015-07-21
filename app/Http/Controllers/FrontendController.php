@@ -57,21 +57,19 @@ class FrontendController extends Controller {
 
     public function reservacion()
     {
-        $mensaje = null;
-
         return view('frontend.reservacion', compact('mensaje'));
     }
 
-    public function reservacionForm()
+    public function reservacionForm(Request $request)
     {
         $data = [
-            'nombre' => Input::get('nombre'),
-            'apellidos' => Input::get('apellidos'),
-            'email' => Input::get('email'),
-            'telefono' => Input::get('telefono'),
-            'fecha' => Input::get('fecha'),
-            'hora' => Input::get('hora'),
-            'personas' => Input::get('personas'),
+            'nombre' => $request->input('nombre'),
+            'apellidos' => $request->input('apellidos'),
+            'email' => $request->input('email'),
+            'telefono' => $request->input('telefono'),
+            'fecha' => $request->input('fecha'),
+            'hora' => $request->input('hora'),
+            'personas' => $request->input('personas'),
         ];
 
         $rules = [
@@ -84,41 +82,38 @@ class FrontendController extends Controller {
             'personas' => 'required|min:1|max:100'
         ];
 
-        $validator = Validator::make($data, $rules);
+        $this->validate($request, $rules);
 
-        if($validator->passes())
+        $fromEmail = 'marco@minduck.com';
+        $fromNombre = 'Marco Lopez';
+
+        \Mail::send('emails.frontend.reservacion', $data, function($message) use ($fromNombre, $fromEmail){
+            $message->to($fromEmail, $fromNombre);
+            $message->from($fromEmail, $fromNombre);
+            $message->subject('Chiwake - Reservación');
+        });
+
+        $mensaje = 'Tu mensaje ha sido enviado.';
+
+        if($request->ajax())
         {
-            $fromEmail = 'marco@minduck.com';
-            $fromNombre = 'Marco Lopez';
-
-            Mail::send('emails.frontend.reservacion', $data, function($message) use ($fromNombre, $fromEmail){
-                $message->to($fromEmail, $fromNombre);
-                $message->from($fromEmail, $fromNombre);
-                $message->subject('Chiwake - Reservación');
-            });
-
-            $mensaje = '<div class="alert notification alert-success">Tu mensaje ha sido enviado.</div>';
-
-            return view('frontend.reservacion', compact('mensaje'));
-        }
-        else
-        {
-            return Redirect::back()->withInput()->withErrors($validator->messages());
+            return response()->json([
+                'message' => $mensaje
+            ]);
         }
     }
 
     public function contacto()
     {
-        $mensaje = null;
         return view('frontend.contacto', compact('mensaje'));
     }
 
-    public function contactoForm()
+    public function contactoForm(Request $request)
     {
         $data = [
-            'mensaje' => Input::get('mensaje'),
-            'nombre' => Input::get('nombre'),
-            'email' => Input::get('email')
+            'mensaje' => $request->input('mensaje'),
+            'nombre' => $request->input('nombre'),
+            'email' => $request->input('email')
         ];
 
         $rules = [
@@ -127,30 +122,58 @@ class FrontendController extends Controller {
             'email' => 'required|email'
         ];
 
-        $validator = Validator::make($data, $rules);
+        $this->validate($request, $rules);
 
-        if($validator->passes())
-        {
-            $fromEmail = 'marco@minduck.com';
-            $fromNombre = 'Marco Lopez';
+        $fromEmail = 'marco@minduck.com';
+        $fromNombre = 'Marco Lopez';
 
-            Mail::send('emails.frontend.contacto', $data, function($message) use ($fromNombre, $fromEmail){
-                $message->to($fromEmail, $fromNombre);
-                $message->from($fromEmail, $fromNombre);
-                $message->subject('Chiwake - Contacto');
-            });
-        }
-        else
-        {
-            return Redirect::back()->withInput()->withErrors($validator->messages());
-        }
+        \Mail::send('emails.frontend.contacto', $data, function($message) use ($fromNombre, $fromEmail){
+            $message->to($fromEmail, $fromNombre);
+            $message->from($fromEmail, $fromNombre);
+            $message->subject('Chiwake - Contacto');
+        });
 
         $mensaje = 'Tu mensaje ha sido enviado.';
 
-        if(Request::ajax())
+        if($request->ajax())
         {
-            return $mensaje;
+            return response()->json([
+                'message' => $mensaje
+            ]);
         }
+
+    }
+
+    public function suscripcionForm(Request $request)
+    {
+        $data = [
+            'email' => $request->input('email')
+        ];
+
+        $rules = [
+            'email' => 'required|email'
+        ];
+
+        $this->validate($request, $rules);
+
+        $fromEmail = 'marco@minduck.com';
+        $fromNombre = 'Marco Lopez';
+
+        \Mail::send('emails.frontend.suscripcion', $data, function($message) use ($fromNombre, $fromEmail){
+            $message->to($fromEmail, $fromNombre);
+            $message->from($fromEmail, $fromNombre);
+            $message->subject('Chiwake - Suscripción');
+        });
+
+        $mensaje = 'Te has suscrito a nuestra web.';
+
+        if($request->ajax())
+        {
+            return response()->json([
+                'message' => $mensaje
+            ]);
+        }
+
     }
 
 }

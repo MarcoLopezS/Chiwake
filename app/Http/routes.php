@@ -22,6 +22,7 @@ Route::get('contacto', ['as' => 'front.contacto', 'uses' => 'FrontendController@
 /* FORMULARIOS */
 Route::post('reservacion', ['as' => 'front.reservacion.form', 'uses' => 'FrontendController@reservacionForm']);
 Route::post('contacto', ['as' => 'front.contacto.form', 'uses' => 'FrontendController@contactoForm']);
+Route::post('suscripcion', ['as' => 'front.suscripcion.form', 'uses' => 'FrontendController@suscripcionForm']);
 
 /* IMAGENES */
 Route::get('/upload/{folder}/{width}x{height}/{image}', ['as' => 'image.adaptiveResize', 'uses' => 'ImageController@adaptiveResize']);
