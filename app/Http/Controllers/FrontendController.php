@@ -29,6 +29,10 @@ class FrontendController extends Controller {
         $this->staffRepo = $staffRepo;
     }
 
+    public function construccion()
+    {
+        return view('construccion.home');
+    }    
 
 	public function home()
 	{

@@ -29,6 +29,10 @@ class AppServiceProvider extends ServiceProvider {
 			'Illuminate\Contracts\Auth\Registrar',
 			'Chiwake\Services\Registrar'
 		);
+
+		$this->app->bind('path.public', function() {
+			return base_path().'/public_html';
+		});
 	}
 
 }

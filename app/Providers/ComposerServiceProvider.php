@@ -12,7 +12,7 @@ class ComposerServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		  View::composer('layouts.frontend', 'Chiwake\Http\ViewComposers\ProfileComposer');
+		  View::composer(['layouts.frontend', 'construccion.home'], 'Chiwake\Http\ViewComposers\ProfileComposer');
 	}
 
 	/**
