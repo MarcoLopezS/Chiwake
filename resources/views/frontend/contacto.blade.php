@@ -23,12 +23,12 @@
                         <span class="md">Encuentranos aquí</span>
                         <div class="location-1">
                             <i class="icon awe_map_marker"></i>
-                            <strong>Av. Arequipa 915</strong>
+                            <strong>Av. Caminos del Inca 1533 - Santiago de Surco</strong>
                         </div>
 
                         <div class="phone">
                             <strong>Teléfono</strong>
-                            (511) 3792 - 7384 - 8459
+                            396-5760 / 960445861
                         </div>
                     </address>
                 </div>
@@ -73,8 +73,8 @@
                             <h3 class="lg text-uppercase">CONTÁCTENOS</h3>
                             <hr class="_hr">
                             <address class="address-wrap">
-                                <span class="address">Av. Arequipa 915</span>
-                                <span class="phone">3792 - 7384 - 8459</span>
+                                <span class="address">Av. Caminos del Inca 1533 - Surco</span>
+                                <span class="phone">396-5760 / 960445861</span>
                             </address>
                         </div>
 
@@ -86,7 +86,7 @@
             </div>
         </div>
         <!-- MAP -->
-        <div id="map" data-map-zoom="14" data-map-latlng="-12.073780, -77.036211" data-snazzy-map-theme="grayscale" data-map-marker="images/marker.png" data-map-marker-size="200*60"></div>
+        <div id="map" data-map-zoom="14" data-map-latlng="-12.125456, -76.982736" data-snazzy-map-theme="grayscale" data-map-marker="images/marker.png" data-map-marker-size="200*60"></div>
         <!-- END / MAP -->
     </div>
 

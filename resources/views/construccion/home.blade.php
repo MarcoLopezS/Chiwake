@@ -77,14 +77,13 @@
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Menu</a></li>
                     <li><a href="#">Reservación</a></li>
-                    <li><a href="#">Contactenos</a></li>
+                    <li><a href="contacto">Contactenos</a></li>
                 </ul>
                 {{-- END / NAV --}}
                 
                 {{-- SOCIAL --}}
                 <div class="head-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>                    
+                    <a href="https://www.facebook.com/chiwake.pe"><i class="fa fa-facebook"></i></a>
                 </div>
                 {{-- END / SOCIAL --}}
             </nav>

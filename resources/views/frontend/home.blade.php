@@ -80,14 +80,14 @@
             <div class="col-md-5">
                 <div class="fastfood-description">
                     <div class="content-heading mt">
-                        <h4 class="lg text-uppercase">¿COMIDA RÁPIDA O SALUD? TE OFRECEMOS LOS DOS!</h4>
+                        <h4 class="lg text-uppercase">UN AMBIENTE ÚNICO</h4>
                         <hr class="_hr">
                     </div>
                     <div class="text-wrap">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique laoreet metus, sit amet accumsan quam consequat ac. Nulla non nisi placerat, sodales lectus at, congue libero. Vivamus justo nulla, euismod eu ornare vitae, auctor quis leo. Vestibulum quis venenatis erat, a rutrum neque.</p>
+                        <p>Nunca olvidará nuestra sonrisa y el trato profesional que les brindamos y los platos calientes como los cocinaba la abuela. Un servicio personalizado preparado para disfrutar en grande la cocina peruana. Un ambiente único para disfrutar con amigos, familiares y para tus encuentros de trabajo.</p>
                     </div>
                     <div class="awe-btn awe-btn-2 awe-btn-ar text-uppercase">
-                        <a href="menu" class="font12">Ver menú</a>
+                        <a href="#" class="font12">Ver menú</a>
                     </div>                    
                 </div>  
             </div>
@@ -97,7 +97,7 @@
                         <!-- FASTFOOD ITEM -->
                         <div class="col-xs-6">
                             <div class="fastfood-item">
-                                <img src="images/fastfood/img-1.jpg" alt="">
+                                <img src="/upload/home/1.jpg" alt="">
                             </div>
                         </div>
                         <!-- END / FASTFOOD ITEM -->
@@ -105,7 +105,7 @@
                         <!-- FASTFOOD ITEM -->
                         <div class="col-xs-6">
                             <div class="fastfood-item">
-                                <img src="images/fastfood/img-2.jpg" alt="">
+                                <img src="/upload/home/2.jpg" alt="">
                             </div>
                         </div>
                         <!-- END / FASTFOOD ITEM -->
@@ -113,7 +113,7 @@
                         <!-- FASTFOOD ITEM -->
                         <div class="col-xs-6">
                             <div class="fastfood-item">
-                                <img src="images/fastfood/img-3.jpg" alt="">
+                                <img src="/upload/home/3.jpg" alt="">
                             </div>
                         </div>
                         <!-- END / FASTFOOD ITEM -->
@@ -121,7 +121,7 @@
                         <!-- FASTFOOD ITEM -->
                         <div class="col-xs-6">
                             <div class="fastfood-item">
-                                <img src="images/fastfood/img-4.jpg" alt="">
+                                <img src="/upload/home/4.jpg" alt="">
                             </div>
                         </div>
                         <!-- END / FASTFOOD ITEM -->
@@ -169,8 +169,8 @@
                             <h3 class="lg text-uppercase">CONTÁCTENOS</h3>
                             <hr class="_hr">
                             <address class="address-wrap">
-                                <span class="address">Av. Arequipa 915</span>
-                                <span class="phone">3792 - 7384 - 8459</span>
+                                <span class="address">Av. Caminos del Inca 1533 - Santiago de Surco</span>
+                                <span class="phone">396-5760 / 960445861</span>
                             </address>
                         </div>
 
@@ -182,7 +182,7 @@
             </div>
         </div>
         <!-- MAP -->
-        <div id="map" data-map-zoom="14" data-map-latlng="-12.073780, -77.036211" data-snazzy-map-theme="grayscale" data-map-marker="images/marker.png" data-map-marker-size="200*60"></div>
+        <div id="map" data-map-zoom="14" data-map-latlng="-12.125456, -76.982736" data-snazzy-map-theme="grayscale" data-map-marker="images/marker.png" data-map-marker-size="200*60"></div>
         <!-- END / MAP -->
     </div>
 
@@ -220,7 +220,7 @@
                 <div class="inner wow fadeInUp" data-wow-delay=".6s">
                     <div class="letter-heading">
                         <h4 class="sm text-uppercase">RECIBE NOTICIAS DE NOSOTROS</h4>
-                        <p>Doner filet mignon bacon corned beef rump, frankfurter sirloin</p>
+                        <p></p>
                     </div>
                     {!! Form::open(['route' => 'front.suscripcion.form', 'method' => 'POST', 'id' => 'formSuscripcion', 'class' => 'pageContacto']) !!}
                         <div class="form-item">

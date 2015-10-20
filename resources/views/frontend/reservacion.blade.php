@@ -98,7 +98,7 @@
 
                         </div>{{-- end .frm-row section --}}
 
-                        <div class="result">{{ $mensaje }}</div>{{-- end .result  section --}}
+                        <div class="result"></div>{{-- end .result  section --}}
                         
                     </div>{{-- end .form-body section --}}
 
@@ -127,19 +127,23 @@
         {{-- END / OVERLAY --}}
 
         <div class="container">
+        
+            @foreach($frases as $item)
             <div class="testimonial-content">
                 <div class="icon-head">
                     <i class="icon awe_quote_left"></i>
                 </div>
 
                 <blockquote>
-                    <p>No se trata de nutrientes y calorías.</p>
-                    <span>Se trata de compartir. Se trata de la disfrutar.</span>
+                    <p>{{ $item->titulo }}</p>
+                    <span>{{ $item->descripcion }}</span>
                     <div class="test-footer text-right">
-                        <span class="sm">Carlos Torres</span>
+                        <span class="sm">{{ $item->autor }}</span>
                     </div>
                 </blockquote>
             </div>
+            @endforeach
+
         </div>
     </section>
     {{-- END / TESTIMONIAL --}}

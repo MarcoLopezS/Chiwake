@@ -9,8 +9,8 @@ Ver usuario
 {{-- page level styles --}}
 @section('header_styles')
 <!--page level css -->
-{{ HTML::style('admin/vendors/jasny-bootstrap/css/jasny-bootstrap.css') }}
-{{ HTML::style('admin/css/pages/form_layouts.css') }}
+{!! HTML::style('admin/vendors/jasny-bootstrap/css/jasny-bootstrap.css') !!}
+{!! HTML::style('admin/css/pages/form_layouts.css') !!}
 <!--end of page level css-->
 @stop
 
@@ -33,23 +33,23 @@ Ver usuario
                     <div class="form-horizontal form-bordered">
 
                         <div class="form-group">
-                            {{ Form::label('first_name', 'Nombre', ['class' => 'col-md-3 control-label']) }}
+                            {!! Form::label('first_name', 'Nombre', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
-                                {{ Form::text('first_name', $user->first_name, ['class' => 'form-control required', 'disabled']) }}
+                                {!! Form::text('first_name', $user->first_name, ['class' => 'form-control required', 'disabled']) !!}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ Form::label('last_name', 'Apellidos', ['class' => 'col-md-3 control-label']) }}
+                            {!! Form::label('last_name', 'Apellidos', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
-                                {{ Form::text('last_name', $user->last_name, ['class' => 'form-control required', 'disabled']) }}
+                                {!! Form::text('last_name', $user->last_name, ['class' => 'form-control required', 'disabled']) !!}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ Form::label('email', 'Email', ['class' => 'col-md-3 control-label']) }}
+                            {!! Form::label('email', 'Email', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
-                                {{ Form::email('email', $user->email, ['class' => 'form-control required', 'disabled']) }}
+                                {!! Form::email('email', $user->email, ['class' => 'form-control required', 'disabled']) !!}
                             </div>
                         </div>
 
@@ -74,8 +74,8 @@ Ver usuario
 
 {{-- page level scripts --}}
 @section('footer_scripts')
-{{ HTML::script('admin/vendors/wizard/jquery-steps/js/jquery.validate.min.js') }}
-{{ HTML::script('admin/vendors/wizard/jquery-steps/js/wizard.js') }}
-{{ HTML::script('admin/vendors/wizard/jquery-steps/js/jquery.steps.js') }}
-{{ HTML::script('admin/vendors/wizard/jquery-steps/js/form_wizard.js') }}
+{!! HTML::script('admin/vendors/wizard/jquery-steps/js/jquery.validate.min.js') !!}
+{!! HTML::script('admin/vendors/wizard/jquery-steps/js/wizard.js') !!}
+{!! HTML::script('admin/vendors/wizard/jquery-steps/js/jquery.steps.js') !!}
+{!! HTML::script('admin/vendors/wizard/jquery-steps/js/form_wizard.js') !!}
 @stop

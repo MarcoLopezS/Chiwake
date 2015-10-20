@@ -61,7 +61,9 @@ class FrontendController extends Controller {
 
     public function reservacion()
     {
-        return view('frontend.reservacion', compact('mensaje'));
+        $frases = $this->phraseRepo->publicadoOrden('titulo', 'asc');
+
+        return view('frontend.reservacion', compact('mensaje','frases'));
     }
 
     public function reservacionForm(Request $request)
@@ -88,8 +90,8 @@ class FrontendController extends Controller {
 
         $this->validate($request, $rules);
 
-        $fromEmail = 'marco@minduck.com';
-        $fromNombre = 'Marco Lopez';
+        $fromEmail = 'reservas@chiwake.pe';
+        $fromNombre = 'Chiwake';
 
         \Mail::send('emails.frontend.reservacion', $data, function($message) use ($fromNombre, $fromEmail){
             $message->to($fromEmail, $fromNombre);
@@ -128,8 +130,8 @@ class FrontendController extends Controller {
 
         $this->validate($request, $rules);
 
-        $fromEmail = 'marco@minduck.com';
-        $fromNombre = 'Marco Lopez';
+        $fromEmail = 'reservas@chiwake.pe';
+        $fromNombre = 'Chiwake';
 
         \Mail::send('emails.frontend.contacto', $data, function($message) use ($fromNombre, $fromEmail){
             $message->to($fromEmail, $fromNombre);
@@ -160,8 +162,8 @@ class FrontendController extends Controller {
 
         $this->validate($request, $rules);
 
-        $fromEmail = 'marco@minduck.com';
-        $fromNombre = 'Marco Lopez';
+        $fromEmail = 'reservas@chiwake.pe';
+        $fromNombre = 'Chiwake';
 
         \Mail::send('emails.frontend.suscripcion', $data, function($message) use ($fromNombre, $fromEmail){
             $message->to($fromEmail, $fromNombre);

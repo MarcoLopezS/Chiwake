@@ -17,16 +17,16 @@
     <div class="container">
         <div class="block-first">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <div class="image-wrap">
                         {{--*/
-                        $about_imagen = "/upload/".$about->about_imagen_carpeta."400x310/".$about->about_imagen;
+                        $about_imagen = "/upload/".$about->about_imagen_carpeta."750x300/".$about->about_imagen;
                         /*--}}
                         <img src="{{ $about_imagen }}" alt="QUIENES SOMOS">
                     </div>
                 </div>
 
-                <div class="col-md-7 col-md-offset-1">
+                <div class="col-md-4">
                     <h4 class="lg text-uppercase">QUIENES SOMOS</h4>
                     {!! $about->about !!}
                 </div>
@@ -49,71 +49,12 @@
                     {!! $about->vision !!}
                     <h4 class="lg text-uppercase">MISIÓN</h4>
                     {!! $about->mision !!}
-                    <a href="menu" class="awe-btn awe-btn-2 awe-btn-default text-uppercase">Ver menú</a>
+                    <a href="#" class="awe-btn awe-btn-2 awe-btn-default text-uppercase">Ver menú</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- ABOUT STORY -->
-
-<!-- THE STAFF -->
-<section id="the-staff" class="the-staff section">
-
-    <div class="section-heading text-center">
-        <!-- BACKGROUND -->
-        <div class="awe-parallax bg-4"></div>
-        <!-- END / BACKGROUND -->
-
-        <!-- OVERLAY -->
-        <div class="awe-overlay"></div>
-        <!-- END / OVERLAY -->
-        <div class="awe-title awe-title-3">
-            <h3 class="lg text-uppercase">Staff</h3>
-        </div>
-    </div>
-
-    <div class="section-content">
-        <div class="container">
-            <div class="row">
-                <div class="staff-slider">
-
-                    {{-- STAFF ITEM --}}
-
-                    @foreach($staff as $item)
-                    {{--*/
-                    $imagen = "/upload/".$item->imagen_carpeta."238x237/".$item->imagen;
-                    $nombre = $item->nombre;
-                    $cargo = $item->cargo;
-                    $descripcion = $item->descripcion;
-                    /*--}}
-                    <div class="staff-item">
-                        <div class="staff-heading">
-                            <div class="image-wrap">
-                                <img src="{{ $imagen }}" alt="">
-                            </div>
-                        </div>
-                    
-                        <div class="staff-info">
-                            <h4 class="staff-name sm">{{ $nombre }}</h4>
-                            <span class="staff-work">{{ $cargo }}</span>
-                        </div>
-                    
-                        <div class="staff-body">
-                            <p>{{ $descripcion }}</p>
-                        </div>
-                    
-                    </div>
-                    @endforeach
-
-                    {{-- END / STAFF ITEM --}}
-
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-<!-- END / THE STAFF -->
 
 @stop

@@ -75,7 +75,7 @@
                 <ul class="nav text-uppercase">
                     <li><a href="/">Inicio</a></li>
                     <li><a href="nosotros">Nosotros</a></li>
-                    <li><a href="menu">Menu</a></li>
+                    <li><a href="#">Menu</a></li>
                     <li><a href="reservacion">Reservación</a></li>
                     <li><a href="contacto">Contactenos</a></li>
                 </ul>
@@ -83,8 +83,7 @@
                 
                 {{-- SOCIAL --}}
                 <div class="head-social">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>                    
+                    <a href="https://www.facebook.com/chiwake.pe"><i class="fa fa-facebook"></i></a>
                 </div>
                 {{-- END / SOCIAL --}}
             </nav>
