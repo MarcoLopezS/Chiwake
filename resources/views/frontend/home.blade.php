@@ -87,7 +87,7 @@
                         <p>Nunca olvidará nuestra sonrisa y el trato profesional que les brindamos y los platos calientes como los cocinaba la abuela. Un servicio personalizado preparado para disfrutar en grande la cocina peruana. Un ambiente único para disfrutar con amigos, familiares y para tus encuentros de trabajo.</p>
                     </div>
                     <div class="awe-btn awe-btn-2 awe-btn-ar text-uppercase">
-                        <a href="#" class="font12">Ver menú</a>
+                        <a href="/" class="font12">Ver menú</a>
                     </div>                    
                 </div>  
             </div>

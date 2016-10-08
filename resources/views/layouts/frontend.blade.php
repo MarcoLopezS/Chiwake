@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
 
-    <title>{{ $conf->titulo }}</title>
+    <title>
+        @section('titulo')
+            {{ $conf->titulo }}
+        @show
+    </title>
 
     <meta name="keywords" content="{{ $conf->keywords }}"/>
     <meta name="description" content="{{ $conf->descripcion }}"/>
@@ -60,7 +64,7 @@
         <div class="container">
             {{-- LOGO --}}
             
-            <div class="logo"><a href="/"><img {{ (Request::is('/') ? 'src=images/logo-texto.png' : 'src=images/logo.png') }} alt="Chiwake - Comida Peruana"></a></div>
+            <div class="logo"><a href="/"><img {{ (Request::is('/') ? 'src=/images/logo-texto.png' : 'src=/images/logo.png') }} alt="Chiwake - Comida Peruana"></a></div>
             {{-- END / LOGO --}}
 
             {{-- OPEN MENU MOBILE --}}
@@ -74,10 +78,17 @@
                 {{-- NAV --}}
                 <ul class="nav text-uppercase">
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="nosotros">Nosotros</a></li>
-                    <li><a href="#">Menu</a></li>
-                    <li><a href="reservacion">Reservación</a></li>
-                    <li><a href="contacto">Contactenos</a></li>
+                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="/menu">Menu</a>
+                        <ul class="sub-menu">
+                            @foreach($categorias as $categoria)
+                            <li><a href="{{ $categoria->url }}">{{ $categoria->titulo }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                    <li><a href="/reservacion">Reservación</a></li>
+                    <li><a href="/contacto">Contactenos</a></li>
                 </ul>
                 {{-- END / NAV --}}
                 
@@ -115,17 +126,17 @@
 {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') !!}
 
 {{-- GOOGLE MAP --}}
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+{!! HTML::script('http://maps.google.com/maps/api/js?sensor=false') !!}
+{!! HTML::script('js/lib/jquery.bxslider.min.js') !!}
+{!! HTML::script('js/lib/jquery.easing.min.js') !!}
+{!! HTML::script('js/lib/jquery.owl.carousel.min.js') !!}
+{!! HTML::script('js/lib/masonry.pkgd.min.js') !!}
+{!! HTML::script('js/lib/perfect-scrollbar.min.js') !!}
+{!! HTML::script('js/lib/jquery.magnific-popup.min.js') !!}
+{!! HTML::script('js/lib/jquery.parallax-1.1.3.js') !!}
+{!! HTML::script('js/lib/retina.min.js') !!}
+{!! HTML::script('js/scripts.js') !!}
 
-<script type="text/javascript" src="js/lib/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="js/lib/jquery.easing.min.js"></script>
-<script type="text/javascript" src="js/lib/jquery.owl.carousel.min.js"></script>
-<script type="text/javascript" src="js/lib/masonry.pkgd.min.js"></script>
-<script type="text/javascript" src="js/lib/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="js/lib/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="js/lib/jquery.parallax-1.1.3.js"></script>
-<script type="text/javascript" src="js/lib/retina.min.js"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
 
 @yield('script_footer')
 

@@ -41,6 +41,7 @@
                         <thead>
                             <tr>
                                 <th>Titulo</th>
+                                <th>Precio</th>
                                 <th>Publicar</th>
                                 <th>Acciones</th>
                             </tr>
@@ -49,6 +50,7 @@
                             @foreach($posts as $item)
                             <tr data-id="{{ $item->id }}" data-title="{{ $item->titulo }}">
                                 <td>{{ $item->titulo }}</td>
+                                <td>{{ number_format($item->precio, 2, '.', ',') }}</td>
                                 <td>{{ $item->publicar ? 'Publicado' : 'No publicado' }}</td>
                                 <td>
                                     <div class="button-dropdown" data-buttons="dropdown">

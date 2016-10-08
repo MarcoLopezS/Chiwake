@@ -47,7 +47,7 @@
                         <div class="form-group">
                             {!! Form::label('descripcion', 'Descripción', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
-                                {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
+                                {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '5']) !!}
                             </div>
                         </div>
 
@@ -62,7 +62,7 @@
                             {!! Form::label('imagen_actual', 'Imagen actual', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
                                 <a class="fancybox" href="/upload/{{ $post->imagen_carpeta."".$post->imagen }}" title="{{ $post->titulo }}">
-                                    <img src="/upload/{{ $post->imagen_carpeta }}200x100/{{ $post->imagen }}" alt="" />
+                                    <img src="/upload/{{ $post->imagen_carpeta }}200x200/{{ $post->imagen }}" alt="" />
                                 </a>
                                 {!! Form::hidden('imagen_actual', $post->imagen) !!}
                                 {!! Form::hidden('imagen_actual_carpeta', $post->imagen_carpeta) !!}

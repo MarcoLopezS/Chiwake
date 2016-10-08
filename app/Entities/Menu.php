@@ -14,4 +14,23 @@ class Menu extends BaseEntity{
         return $this->belongsTo('Chiwake\Entities\MenuCategory', 'menu_category_id');
     }
 
+    /*
+     * GETTERS
+     */
+    public function getImagenMenuThumbAttribute()
+    {
+        $imagen = "/upload/".$this->imagen_carpeta.$this->imagen;
+
+        if(file_exists($imagen)){
+            return "/upload/".$this->imagen_carpeta."400x300/".$this->imagen;
+        }else{
+            return "/upload/imagen.jpg";
+        }
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('front.menu.select', [$this->category->slug_url, $this->slug_url]);
+    }
+
 } 

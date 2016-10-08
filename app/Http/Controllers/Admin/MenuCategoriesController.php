@@ -14,7 +14,8 @@ class MenuCategoriesController extends Controller {
 
     protected  $rules = [
         'titulo' => 'required',
-        'publicar' => 'required|in:1,0'
+        'publicar' => 'required|in:1,0',
+        'imagen' => 'required'
     ];
 
     protected $menuCategoryRepo;
@@ -31,7 +32,7 @@ class MenuCategoriesController extends Controller {
 	 */
     public function index()
     {
-        $categories = $this->menuCategoryRepo->orderBy('orden', 'asc')->get();
+        $categories = $this->menuCategoryRepo->orderBy('titulo', 'asc')->get();
         return view('admin.menus_categories.list', compact('categories'));
     }
 
@@ -56,6 +57,19 @@ class MenuCategoriesController extends Controller {
     {
         $this->validate($request, $this->rules);
 
+        //CREAR CARPETA CON FECHA Y MOVER IMAGEN
+        if($request->hasFile('imagen'))
+        {
+            $this->menuCategoryRepo->CrearCarpeta();
+            $ruta = "upload/".$this->menuCategoryRepo->FechaCarpeta();
+            $archivo = $request->file('imagen');
+            $imagen = $this->menuCategoryRepo->FileMove($archivo, $ruta);
+            $imagen_carpeta = $this->menuCategoryRepo->FechaCarpeta();
+        }else{
+            $imagen = "";
+            $imagen_carpeta = "";
+        }
+
         //VARIABLES
         $titulo = $request->input('titulo');
 
@@ -64,6 +78,8 @@ class MenuCategoriesController extends Controller {
 
         $category = new MenuCategory($request->all());
         $category->slug_url = $slug_url;
+        $category->imagen = $imagen;
+        $category->imagen_carpeta = $imagen_carpeta;
         $category->user_id = Auth::user()->id;
         $this->menuCategoryRepo->create($category, $request->all());
 
@@ -116,7 +132,22 @@ class MenuCategoriesController extends Controller {
         //CONVERTIR TITULO A URL
         $slug_url = $this->menuCategoryRepo->SlugUrl($titulo);
 
+        //CREAR CARPETA CON FECHA Y MOVER IMAGEN
+        if($request->hasFile('imagen'))
+        {
+            $this->menuCategoryRepo->CrearCarpeta();
+            $ruta = "upload/".$this->menuCategoryRepo->FechaCarpeta();
+            $archivo = $request->file('imagen');
+            $imagen = $this->menuCategoryRepo->FileMove($archivo, $ruta);
+            $imagen_carpeta = $this->menuCategoryRepo->FechaCarpeta();
+        }else{
+            $imagen = $request->input('imagen_actual');
+            $imagen_carpeta = $request->input('imagen_actual_carpeta');
+        }
+
         //GUARDAR DATOS
+        $category->imagen = $imagen;
+        $category->imagen_carpeta = $imagen_carpeta;
         $category->slug_url = $slug_url;
         $category->user_id = Auth::user()->id;
         $this->menuCategoryRepo->update($category, $request->all());

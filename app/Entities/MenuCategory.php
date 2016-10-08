@@ -16,4 +16,21 @@ class MenuCategory extends BaseEntity{
         return $this->hasMany('Chiwake\Entities\Menu');
     }
 
+    /*
+     * GETTERS
+     */
+    public function getImagenMenuThumbAttribute()
+    {
+        return "/upload/".$this->imagen_carpeta."300x300/".$this->imagen;
+    }
+
+    public function getImagenMenuAttribute()
+    {
+        return "/upload/".$this->imagen_carpeta.$this->imagen;
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('front.menu.categoria', $this->slug_url);
+    }
 } 

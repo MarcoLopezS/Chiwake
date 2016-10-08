@@ -39,7 +39,8 @@ class FrontendController extends Controller {
         $frases = $this->phraseRepo->publicadoOrden('titulo', 'asc');
         $about = $this->aboutRepo->findOrFail(1);
 
-		return view('frontend.home', compact('frases', 'about'));
+
+		return view('frontend.home', compact('frases', 'about', 'categorias'));
 	}
 
     public function nosotros()
@@ -53,10 +54,22 @@ class FrontendController extends Controller {
 
     public function menu()
     {
-        $menus_categories = $this->menuCategoryRepo->publicadoOrden('orden', 'asc');
-        $menus = $this->menuRepo->orderBy('titulo', 'asc')->get();
+        $menuCategoria = $this->menuCategoryRepo->listarCategorias();
 
-        return view('frontend.menu', compact('menus_categories', 'menus'));
+        return view('frontend.menu', compact('menuCategoria'));
+    }
+
+    public function menuCategoria($categoria)
+    {
+        $menuCategoria = $this->menuCategoryRepo->buscarUrl($categoria);
+        $menus = $this->menuRepo->listarMenusPorCategoria($menuCategoria->id);
+
+        return view('frontend.menu-categoria', compact('menuCategoria','menus'));
+    }
+
+    public function menuSelect($categoria, $menu)
+    {
+
     }
 
     public function reservacion()

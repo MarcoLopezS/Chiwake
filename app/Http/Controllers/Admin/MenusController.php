@@ -16,7 +16,7 @@ class MenusController extends Controller {
 
     protected $rules = [
         'titulo' => 'required',
-        'descripcion' => 'required|min:10|max:255',
+        'descripcion' => 'max:255',
         'precio' => 'required',
         'imagen' => 'mimes:jpeg,jpg,png',
         'categoria' => '',
@@ -39,10 +39,10 @@ class MenusController extends Controller {
 	 *
 	 * @return Response
 	 */
-    public function index($category)
+    public function index($categoryId)
     {
-        $posts = $this->menuRepo->where('menu_category_id', $category)->orderBy('titulo', 'asc')->paginate();
-        $category = $this->menuCategoryRepo->findOrFail($category);
+        $posts = $this->menuRepo->where('menu_category_id', $categoryId)->orderBy('titulo', 'asc')->paginate();
+        $category = $this->menuCategoryRepo->findOrFail($categoryId);
         
         return view('admin.menus.list', compact('posts', 'category'));
     }
@@ -64,6 +64,8 @@ class MenusController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
+     * @param $category
+     * @param Request $request
      * @return Response
      */
     public function store($category, Request $request)

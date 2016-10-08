@@ -47,7 +47,7 @@
                         <div class="form-group">
                             {!! Form::label('descripcion', 'Descripción', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
-                                {!! Form::text('descripcion', null, ['class' => 'form-control']) !!}
+                                {!! Form::textarea('descripcion', null, ['class' => 'form-control', 'rows' => '5']) !!}
                             </div>
                         </div>
 
@@ -69,7 +69,7 @@
                             {!! Form::label('publicar', 'Publicar', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
                                 <label class="checkbox-inline">
-                                    {!! Form::radio('publicar', '1', null,  ['id' => 'publicar']) !!}
+                                    {!! Form::radio('publicar', '1', true,  ['id' => 'publicar']) !!}
                                     Si
                                 </label>
                                 <label class="checkbox-inline">

@@ -8,4 +8,17 @@ class MenuCategoryRepo extends BaseRepo {
     {
         return new MenuCategory;
     }
+
+    //LISTAR CATEGORIAS
+    public function listarCategorias()
+    {
+        return $this->getModel()->where('publicar',1)->orderBy('titulo', 'asc')->get();
+    }
+
+    //BUSCAR POR URL
+    public function buscarUrl($url)
+    {
+        return $this->getModel()->where('slug_url', $url)->first();
+    }
+
 }
