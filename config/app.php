@@ -139,7 +139,6 @@ return [
 		/* Providers externos */
         'Collective\Html\HtmlServiceProvider',
         'Intervention\Image\ImageServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -203,7 +202,6 @@ return [
         'Form' 		=> 'Collective\Html\FormFacade',
         'HTML' 		=> 'Collective\Html\HtmlFacade',
         'Image' 	=> 'Intervention\Image\Facades\Image',
-        'Debugbar'  => 'Barryvdh\Debugbar\Facade',
 
 	],
 
