@@ -28,9 +28,4 @@ class Menu extends BaseEntity{
         }
     }
 
-    public function getUrlAttribute()
-    {
-        return route('front.menu.select', [$this->category->slug_url, $this->slug_url]);
-    }
-
 } 
