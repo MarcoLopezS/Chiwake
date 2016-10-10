@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('titulo')
+    Nosotros | @parent
+@endsection
+
 @section('contenido_frontend')
 
 <!-- SUB BANNER -->

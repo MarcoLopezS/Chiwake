@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('titulo')
-    Resrvación | @parent
+    Reservación | @parent
 @endsection
 
 @section('script_header')
