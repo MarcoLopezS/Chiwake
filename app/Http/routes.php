@@ -4,10 +4,11 @@
 
 Route::get('/', ['as' => 'front.home', 'uses' => 'FrontendController@home']);
 Route::get('nosotros', ['as' => 'front.nosotros', 'uses' => 'FrontendController@nosotros']);
-Route::get('menu', ['as' => 'front.menu', 'uses' => 'FrontendController@menu']);
-Route::get('menu/{categoria}', ['as' => 'front.menu.categoria', 'uses' => 'FrontendController@menuCategoria']);
-Route::get('menu/{categoria}/{menu}', ['as' => 'front.menu.select', 'uses' => 'FrontendController@menuSelect']);
+Route::get('carta', ['as' => 'front.menu', 'uses' => 'FrontendController@menu']);
+Route::get('carta/{categoria}', ['as' => 'front.menu.categoria', 'uses' => 'FrontendController@menuCategoria']);
 Route::get('reservacion', ['as' => 'front.reservacion', 'uses' => 'FrontendController@reservacion']);
+Route::get('corporativo', ['as' => 'front.corporativo', 'uses' => 'FrontendController@corporativoGet']);
+Route::post('corporativo', ['as' => 'front.corporativo.post', 'uses' => 'FrontendController@corporativoPost']);
 Route::get('contacto', ['as' => 'front.contacto', 'uses' => 'FrontendController@contacto']);
 
 /* FORMULARIOS */

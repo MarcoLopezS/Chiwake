@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('titulo')
-    Menú | @parent
+    La Carta | @parent
 @endsection
 
 @section('contenido_frontend')
@@ -10,7 +10,7 @@
 <section class="sub-banner text-center section">
     <div class="awe-parallax bg-4"></div>
     <div class="awe-title awe-title-3">
-        <h3 class="lg text-uppercase">Menú</h3>
+        <h3 class="lg text-uppercase">La Carta</h3>
     </div>
 </section>
 <!-- END / SUB BANNER -->

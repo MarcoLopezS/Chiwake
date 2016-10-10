@@ -87,7 +87,7 @@
                         <p>Nunca olvidará nuestra sonrisa y el trato profesional que les brindamos y los platos calientes como los cocinaba la abuela. Un servicio personalizado preparado para disfrutar en grande la cocina peruana. Un ambiente único para disfrutar con amigos, familiares y para tus encuentros de trabajo.</p>
                     </div>
                     <div class="awe-btn awe-btn-2 awe-btn-ar text-uppercase">
-                        <a href="/menu" class="font12">Ver menú</a>
+                        <a href="{{ route('front.menu') }}" class="font12">Ver la Carta</a>
                     </div>                    
                 </div>  
             </div>
@@ -144,7 +144,7 @@
             </div>
             <div class="links">
                 <div class="reservation-link">
-                    <a href="reservacion" class="awe-btn awe-btn-2 awe-btn-default text-uppercase">RESERVACIÓN</a>
+                    <a href="{{ route('front.reservacion') }}" class="awe-btn awe-btn-2 awe-btn-default text-uppercase">RESERVACIÓN</a>
                 </div>
             </div>
         </div>

@@ -78,17 +78,18 @@
                 {{-- NAV --}}
                 <ul class="nav text-uppercase">
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/nosotros">Nosotros</a></li>
+                    <li><a href="{{ route('front.nosotros') }}">Nosotros</a></li>
                     <li class="menu-item-has-children">
-                        <a href="/menu">Menu</a>
+                        <a href="{{ route('front.menu') }}">La Carta</a>
                         <ul class="sub-menu">
                             @foreach($categorias as $categoria)
                             <li><a href="{{ $categoria->url }}">{{ $categoria->titulo }}</a></li>
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="/reservacion">Reservación</a></li>
-                    <li><a href="/contacto">Contactenos</a></li>
+                    <li><a href="{{ route('front.corporativo') }}">Corporativo</a></li>
+                    <li><a href="{{ route('front.reservacion') }}">Reservación</a></li>
+                    <li><a href="{{ route('front.contacto') }}">Contactenos</a></li>
                 </ul>
                 {{-- END / NAV --}}
                 

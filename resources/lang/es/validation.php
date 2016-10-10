@@ -102,6 +102,14 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'empresa'   => 'Empresa',
+        'fecha'     => 'Fecha',
+        'duracion'  => 'Duración',
+        'tipo'      => 'Tipo de Evento',
+        'contacto'  => 'Nombre de Contacto',
+        'telefono'  => 'Teléfono de Contacto',
+        'email'     => 'Email de Contacto'
+    ],
 
 ];

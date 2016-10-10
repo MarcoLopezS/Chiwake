@@ -52,6 +52,9 @@ class FrontendController extends Controller {
         return view('frontend.nosotros', compact('frases', 'staff', 'about'));
     }
 
+    /*
+     * MENU
+     */
     public function menu()
     {
         $menuCategoria = $this->menuCategoryRepo->listarCategorias();
@@ -67,11 +70,69 @@ class FrontendController extends Controller {
         return view('frontend.menu-categoria', compact('menuCategoria','menus'));
     }
 
-    public function menuSelect($categoria, $menu)
+    /*
+     * CORPORATIVO
+     */
+    public function corporativoGet()
     {
+        $frases = $this->phraseRepo->publicadoOrden('titulo', 'asc');
 
+        return view('frontend.corporativo', compact('frases'));
     }
 
+    public function corporativoPost(Request $request)
+    {
+        $data = [
+            'empresa' => $request->input('empresa'),
+            'fecha' => $request->input('fecha'),
+            'duracion' => $request->input('duracion'),
+            'personas' => $request->input('personas'),
+            'tipo' => $request->input('tipo'),
+            'contacto' => $request->input('contacto'),
+            'telefono' => $request->input('telefono'),
+            'email' => $request->input('email'),
+        ];
+
+        $rules = [
+            'empresa' => 'required',
+            'fecha' => 'required',
+            'duracion' => 'required',
+            'personas' => 'required|min:1|max:255',
+            'tipo' => 'required|in:almuerzo,cena',
+            'contacto' => 'required',
+            'telefono' => 'required',
+            'email' => 'required|email'
+        ];
+
+        $this->validate($request, $rules);
+
+        //DE
+        $deEmail = $data['email'];
+        $deNombre = $data['empresa'];
+
+        //A
+        $aEmail = 'marketing@chiwake.pe';
+        $aNombre = 'Chiwake';
+
+        \Mail::send('emails.frontend.corporativo', $data, function($message) use ($aNombre, $aEmail, $deNombre, $deEmail){
+            $message->to($aEmail, $aNombre);
+            $message->from($deEmail, $deNombre);
+            $message->subject('Chiwake - Corporativo');
+        });
+
+        $mensaje = 'Los datos han sido enviados.';
+
+        if($request->ajax())
+        {
+            return response()->json([
+                'message' => $mensaje
+            ]);
+        }
+    }
+
+    /*
+     * RESERVACION
+     */
     public function reservacion()
     {
         $frases = $this->phraseRepo->publicadoOrden('titulo', 'asc');
@@ -122,6 +183,9 @@ class FrontendController extends Controller {
         }
     }
 
+    /*
+     * CONTACTO
+     */
     public function contacto()
     {
         return view('frontend.contacto', compact('mensaje'));
