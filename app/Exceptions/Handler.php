@@ -24,7 +24,7 @@ class Handler extends ExceptionHandler {
 	 */
 	public function report(Exception $e)
 	{
-		parent::report($e);
+		return parent::report($e);
 	}
 
 	/**
@@ -42,7 +42,7 @@ class Handler extends ExceptionHandler {
 		}
 		else
 		{
-			parent::render($request, $e);
+			return parent::render($request, $e);
 		}
 	}
 
