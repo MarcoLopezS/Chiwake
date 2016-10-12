@@ -6,10 +6,13 @@
 
 @section('script_header')
     {{-- SMARTFORM --}}
-
     <link rel="stylesheet" type="text/css"  href="/libs/smartform/css/smart-forms.css">
     <link rel="stylesheet" type="text/css"  href="/libs/smartform/css/smart-addons.css">
     <link rel="stylesheet" type="text/css"  href="/libs/smartform/css/font-awesome.min.css">
+
+    {{-- Royal Slider --}}
+    {!! HTML::style('libs/royalslider/royalslider.css') !!}
+    {!! HTML::style('libs/royalslider/skins/minimal-white/rs-minimal-white.css') !!}
 @stop
 
 
@@ -27,7 +30,23 @@
     {{-- RESERVATION --}}
     <section class="reservation section pd corporativo">
         <div class="divider divider-2"></div>
+
+        <div id="corporativo-slider">
+            <h4 class="text-uppercase text-center">Contamos con diversas opciones para tus reservas corporativas, buffet criollo, menús corporativos, piqueos con cocteles, entre otros.</h4>
+
+            <div id="full-width-slider" class="royalSlider heroSlider rsMinW">
+                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/1.jpg') }}" alt="Chiwake - Corporativo"></div>
+                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/2.jpg') }}" alt="Chiwake - Corporativo"></div>
+                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/3.jpg') }}" alt="Chiwake - Corporativo"></div>
+                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/4.jpg') }}" alt="Chiwake - Corporativo"></div>
+                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/5.jpg') }}" alt="Chiwake - Corporativo"></div>
+                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/6.jpg') }}" alt="Chiwake - Corporativo"></div>
+            </div>
+        </div>
+
         <div class="reservation-content">
+
+            <h4 class="text-uppercase text-center">Realiza tu reserva ahora mismo</h4>
 
             <div class="smart-forms smart-container">
 
@@ -208,6 +227,37 @@
 
 
 @section('script_footer')
+
+    {{-- Royal Slider --}}
+    {!! HTML::script('libs/royalslider/jquery.royalslider.min.js') !!}
+    <script>
+        $(document).on("ready", function() {
+            $('#full-width-slider').royalSlider({
+                arrowsNav: true,
+                loop: true,
+                keyboardNavEnabled: true,
+                controlsInside: false,
+                imageScaleMode: 'fill',
+                arrowsNavAutoHide: false,
+                autoScaleSlider: true,
+                autoScaleSliderWidth: 960,
+                autoScaleSliderHeight: 350,
+                controlNavigation: 'bullets',
+                thumbsFitInViewport: false,
+                navigateByClick: true,
+                startSlideId: 0,
+                autoPlay: true,
+                transitionType:'move',
+                globalCaption: false,
+                deeplinking: {
+                    enabled: true,
+                    change: false
+                },
+                imgWidth: 1400,
+                imgHeight: 800
+            });
+        });
+    </script>
 
     {{-- SMARTFORM --}}
     <script src="/libs/smartform/js/jquery-ui-1.10.4.custom.min.js"></script>
