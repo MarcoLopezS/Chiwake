@@ -7,7 +7,7 @@
 @section('contenido_frontend')
 
 <!-- SUB BANNER -->
-<section class="sub-banner text-center section">
+<section class="sub-banner text-center section sub-banner-corporativo">
     <div class="awe-parallax bg-4" style="background:url('{{ $menuCategoria->imagen_menu }}');"></div>
     <div class="awe-title awe-title-3">
         <h3 class="lg text-uppercase">{{ $menuCategoria->titulo }}</h3>
@@ -26,11 +26,6 @@
 
                     @foreach($menus as $item_menu)
                     <div class="post post-single">
-                        <div class="post-media">
-                            <div class="image-wrap">
-                                <img src="{{ $item_menu->imagen_menu_thumb }}" alt="">
-                            </div>
-                        </div>
                         <div class="post-body">
                             <div class="post-title">
                                 <h3 class="xmd"><a href="{{ $item_menu->url }}">{{ $item_menu->titulo }}</a></h3>

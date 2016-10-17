@@ -25,29 +25,19 @@
 
     <div class="container">
         <div class="row">
-            <div class="blog-grid">
-                <div class="grid-sizer"></div>
 
+            <div class="carta-lista">
                 @foreach($menuCategoria as $categoria)
-                <div class="post post-single">
-                    <div class="post-media">
+                    <div class="awe-btn awe-btn-3 awe-btn-default text-uppercase">
                         <a href="{{ $categoria->url }}" title="{{ $categoria->titulo }}">
-                            <img src="{{ $categoria->imagen_menu_thumb }}" alt="{{ $categoria->titulo }}">
+                            {{ $categoria->titulo }}
                         </a>
                     </div>
-                    <div class="post-body">
-                        <div class="post-title">
-                            <h2 class="text-uppercase">
-                                <a href="{{ $categoria->url }}" title="{{ $categoria->titulo }}">
-                                    {{ $categoria->titulo }}
-                                </a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
-
             </div>
+
+            <img class="carta-imagen" src="/imagenes/carta.jpg" alt="Chiwake - La Carta">
+
         </div>
 
     </div>

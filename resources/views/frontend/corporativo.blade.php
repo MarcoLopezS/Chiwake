@@ -19,8 +19,8 @@
 @section('contenido_frontend')
 
     {{-- SUB BANNER --}}
-    <section class="sub-banner text-center section">
-        <div class="awe-parallax bg-4"></div>
+    <section class="sub-banner text-center section sub-banner-corporativo">
+        <div class="awe-parallax bg-corporativo"></div>
         <div class="awe-title awe-title-3">
             <h3 class="lg text-uppercase">Corporativo</h3>
         </div>
@@ -30,19 +30,6 @@
     {{-- RESERVATION --}}
     <section class="reservation section pd corporativo">
         <div class="divider divider-2"></div>
-
-        <div id="corporativo-slider">
-            <h4 class="text-uppercase text-center">Contamos con diversas opciones para tus reservas corporativas, buffet criollo, menús corporativos, piqueos con cocteles, entre otros.</h4>
-
-            <div id="full-width-slider" class="royalSlider heroSlider rsMinW">
-                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/1.jpg') }}" alt="Chiwake - Corporativo"></div>
-                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/2.jpg') }}" alt="Chiwake - Corporativo"></div>
-                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/3.jpg') }}" alt="Chiwake - Corporativo"></div>
-                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/4.jpg') }}" alt="Chiwake - Corporativo"></div>
-                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/5.jpg') }}" alt="Chiwake - Corporativo"></div>
-                <div class="rsContent"><img class="rsImg" src="{{ url('imagenes/corporativo/6.jpg') }}" alt="Chiwake - Corporativo"></div>
-            </div>
-        </div>
 
         <div class="reservation-content">
 
@@ -170,6 +157,12 @@
 
             </div>
 
+        </div>
+
+        <div id="corporativo-slider">
+            <h4 class="text-uppercase text-center">Contamos con diversas opciones para tus reservas corporativas, buffet criollo, menús corporativos, piqueos con cocteles, entre otros.</h4>
+
+            <img src="/imagenes/corporativo/collage.jpg" alt="Corporativo">
         </div>
     </section>
     {{-- END / RESERVATION --}}

@@ -33,6 +33,13 @@
                         </div>
 
                         <div class="form-group">
+                            {!! Form::label('descripcion', 'Descripción', ['class' => 'col-md-3 control-label']) !!}
+                            <div class="col-md-9">
+                                {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             {!! Form::label('imagen_actual', 'Imagen actual', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
                                 <a class="fancybox" href="/upload/{{ $category->imagen_carpeta."".$category->imagen }}" title="{{ $category->titulo }}">

@@ -34,6 +34,13 @@
                         </div>
 
                         <div class="form-group">
+                            {!! Form::label('descripcion', 'Descripción', ['class' => 'col-md-3 control-label']) !!}
+                            <div class="col-md-9">
+                                {!! Form::textarea('descripcion', null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             {!! Form::label('imagen', 'Imagen', ['class' => 'col-md-3 control-label']) !!}
                             <div class="col-md-9">
                                 {!! Form::file('imagen') !!}
