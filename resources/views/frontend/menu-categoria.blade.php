@@ -28,7 +28,7 @@
                     <div class="post post-single">
                         <div class="post-body">
                             <div class="post-title">
-                                <h3 class="xmd"><a href="{{ $item_menu->url }}">{{ $item_menu->titulo }}</a></h3>
+                                <h3 class="xmd"><a href="javascript:;">{{ $item_menu->titulo }}</a></h3>
                             </div>
                             <div class="post-content">
                                 <p>{{ $item_menu->descripcion }}</p>
