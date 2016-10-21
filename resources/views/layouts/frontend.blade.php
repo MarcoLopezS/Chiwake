@@ -33,7 +33,7 @@
     {!! HTML::style('css/awe-fonts.css') !!}
 
     {{-- PAGE STYLE --}}
-    {!! HTML::style('css/style.css') !!}
+    {!! HTML::style('css/style.css?'.date("Ym")) !!}
     {!! HTML::style('css/responsive.css') !!}
 
     <!--[if lt IE 9]>
