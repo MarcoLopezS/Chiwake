@@ -136,6 +136,7 @@ class FrontendController extends Controller {
     public function reservacion()
     {
         $frases = $this->phraseRepo->publicadoOrden('titulo', 'asc');
+        $mensaje = '';
 
         return view('frontend.reservacion', compact('mensaje','frases'));
     }
